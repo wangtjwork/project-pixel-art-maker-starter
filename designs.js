@@ -8,16 +8,20 @@ function choosePenColor (event) {
   penColor = event.target.value;
 }
 
-
 // Select size input
-let height = 1, width = 1;
 
+const heightInput = document.querySelector('#input_height');
+const widthInput = document.querySelector('#input_width');
+const submitButton = document.querySelector('input[type="submit"]');
 
+submitButton.addEventListener('click', makeGrid);
 
 // When size is submitted by the user, call makeGrid()
 
-function makeGrid() {
-
+function makeGrid(event) {
 // Your code goes here!
-
+  event.preventDefault();
+  let height = heightInput.value;
+  let width = widthInput.value;
+  console.log(height + "," + width);
 }
