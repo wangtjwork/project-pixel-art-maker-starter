@@ -13,6 +13,7 @@ function choosePenColor (event) {
 const heightInput = document.querySelector('#input_height');
 const widthInput = document.querySelector('#input_width');
 const submitButton = document.querySelector('input[type="submit"]');
+const pixelCanvas = document.querySelector('#pixel_canvas');
 
 submitButton.addEventListener('click', makeGrid);
 
@@ -24,4 +25,16 @@ function makeGrid(event) {
   let height = heightInput.value;
   let width = widthInput.value;
   console.log(height + "," + width);
+  while (pixelCanvas.firstChild) {
+    pixelCanvas.removeChild(pixelCanvas.firstChild);
+  }
+
+  for (let i = 0; i < height; i++) {
+    let newRow = document.createElement("tr");
+    for (let j = 0; j < width; j++) {
+      let newTd = document.createElement("td");
+      newRow.appendChild(newTd);
+    }
+    pixelCanvas.append(newRow);
+  }
 }
