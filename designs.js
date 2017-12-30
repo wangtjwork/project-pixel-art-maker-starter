@@ -14,9 +14,6 @@ const heightInput = document.querySelector('#input_height');
 const widthInput = document.querySelector('#input_width');
 const submitButton = document.querySelector('input[type="submit"]');
 const pixelCanvas = document.querySelector('#pixel_canvas');
-
-submitButton.addEventListener('click', makeGrid);
-
 // When size is submitted by the user, call makeGrid()
 
 function makeGrid(event) {
@@ -38,3 +35,11 @@ function makeGrid(event) {
     pixelCanvas.append(newRow);
   }
 }
+
+submitButton.addEventListener('click', makeGrid);
+
+function fillColor(event) {
+  event.target.style.backgroundColor = penColor;
+}
+
+pixelCanvas.addEventListener('click', fillColor, false);
